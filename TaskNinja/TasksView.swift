@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct TasksView: View {
+    @State private var tasks: [Task] = []
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -18,13 +20,13 @@ struct TasksView: View {
                 
                 Spacer()
                 
-                NavigationLink(destination: AddTaskView()) {
+                NavigationLink(destination: AddTaskView(tasks: $tasks)) {
                     Text("Add Task")
                         .font(.headline)
                         .padding()
                 }
                 
-                NavigationLink(destination: TaskListView()) {
+                NavigationLink(destination: TaskListView(tasks: $tasks)) {
                     Text("View Tasks")
                         .font(.headline)
                         .padding()
@@ -49,7 +51,6 @@ struct TasksView: View {
         }
     }
 }
-
 struct TasksView_Previews: PreviewProvider {
     static var previews: some View {
         TasksView()

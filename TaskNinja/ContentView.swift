@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var tasks: [Task] = []
     @State private var userName = ""
     @State private var isNameEntered = false
     
