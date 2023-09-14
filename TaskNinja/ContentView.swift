@@ -43,6 +43,7 @@ struct ContentView: View {
 
 struct MainView: View {
     var userName: String
+    @State private var isAppExiting = false
     
     var body: some View {
         NavigationView {
@@ -57,9 +58,40 @@ struct MainView: View {
                     .padding(.top)
                 
                 Spacer()
+                
+                NavigationLink(destination: TasksView()) {
+                    Text("Tasks")
+                        .font(.headline)
+                        .padding()
+                }
+                
+                Button(action: {
+                }) {
+                    Text("Settings")
+                        .font(.headline)
+                        .padding()
+                }
+                
+                Button(action: {
+                    isAppExiting = true
+                }) {
+                    Text("Exit")
+                        .font(.headline)
+                        .padding()
+                }
             }
             .padding()
             .navigationBarTitle("")
+            .alert(isPresented: $isAppExiting) {
+                Alert(
+                    title: Text("Exit TaskNinja?"),
+                    message: Text("Are you sure you want to exit TaskNinja?"),
+                    primaryButton: .destructive(Text("Exit")) {
+                        exit(0)
+                    },
+                    secondaryButton: .cancel()
+                )
+            }
         }
     }
 }
