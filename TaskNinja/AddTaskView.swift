@@ -10,6 +10,11 @@ import SwiftUI
 struct AddTaskView: View {
     @Binding var tasks: [Task]
     @State private var taskName: String = ""
+    @State private var taskDescription: String = ""
+    @State private var dueDate = Date()
+    @State private var selectedPriority: Priority = .medium
+    @State private var isShowingErrorAlert = false
+    @State private var errorMessage = ""
 
     var body: some View {
         VStack {
@@ -17,16 +22,32 @@ struct AddTaskView: View {
                 .font(.largeTitle)
                 .bold()
                 .padding()
-            
+
             TextField("Task Name", text: $taskName)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding()
-            
+
+            TextField("Task Description", text: $taskDescription)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding()
+
+            DatePicker("Due Date", selection: $dueDate, in: Date()...)
+                .padding()
+
+            Picker("Priority", selection: $selectedPriority) {
+                Text("Low").tag(Priority.low)
+                Text("Medium").tag(Priority.medium)
+                Text("High").tag(Priority.high)
+            }
+            .pickerStyle(SegmentedPickerStyle())
+            .padding()
+
             Button(action: {
-                if !self.taskName.isEmpty {
-                    let newTask = Task(id: UUID().uuidString, name: self.taskName)
+                if validateTask() {
+                    let newTask = Task(id: UUID(), name: self.taskName, description: self.taskDescription, dueDate: self.dueDate, priority: self.selectedPriority)
                     self.tasks.append(newTask)
                     self.taskName = ""
+                    self.taskDescription = ""
                 }
             }) {
                 Text("Add Task")
@@ -35,10 +56,26 @@ struct AddTaskView: View {
                     .foregroundColor(.white)
                     .cornerRadius(8)
             }
-            
+            .alert(isPresented: $isShowingErrorAlert) {
+                Alert(
+                    title: Text("Error"),
+                    message: Text(errorMessage),
+                    dismissButton: .default(Text("OK"))
+                )
+            }
+
             Spacer()
         }
         .padding()
+    }
+
+    private func validateTask() -> Bool {
+        if taskName.isEmpty {
+            errorMessage = "Task name cannot be empty."
+            isShowingErrorAlert = true
+            return false
+        }
+        return true
     }
 }
 
@@ -49,3 +86,4 @@ struct AddTaskView_Previews: PreviewProvider {
         AddTaskView(tasks: $tasks)
     }
 }
+

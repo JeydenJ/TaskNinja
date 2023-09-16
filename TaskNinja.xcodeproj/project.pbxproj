@@ -14,6 +14,9 @@
 		39ADA9482AB312DD00EF8E95 /* TasksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39ADA9472AB312DD00EF8E95 /* TasksView.swift */; };
 		39ADA94C2AB3131900EF8E95 /* AddTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39ADA94B2AB3131900EF8E95 /* AddTaskView.swift */; };
 		39ADA94E2AB313BA00EF8E95 /* TaskListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39ADA94D2AB313BA00EF8E95 /* TaskListView.swift */; };
+		39BCDD012AB45CA800BA4A22 /* TaskDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BCDD002AB45CA800BA4A22 /* TaskDetailView.swift */; };
+		39BCDD032AB462C500BA4A22 /* EditTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BCDD022AB462C500BA4A22 /* EditTaskView.swift */; };
+		39BCDD052AB4650700BA4A22 /* TaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BCDD042AB4650700BA4A22 /* TaskManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +28,9 @@
 		39ADA9472AB312DD00EF8E95 /* TasksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksView.swift; sourceTree = "<group>"; };
 		39ADA94B2AB3131900EF8E95 /* AddTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskView.swift; sourceTree = "<group>"; };
 		39ADA94D2AB313BA00EF8E95 /* TaskListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListView.swift; sourceTree = "<group>"; };
+		39BCDD002AB45CA800BA4A22 /* TaskDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailView.swift; sourceTree = "<group>"; };
+		39BCDD022AB462C500BA4A22 /* EditTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskView.swift; sourceTree = "<group>"; };
+		39BCDD042AB4650700BA4A22 /* TaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +67,9 @@
 				39ADA93B2AB300C000EF8E95 /* ContentView.swift */,
 				39ADA9472AB312DD00EF8E95 /* TasksView.swift */,
 				39ADA94D2AB313BA00EF8E95 /* TaskListView.swift */,
+				39BCDD022AB462C500BA4A22 /* EditTaskView.swift */,
+				39BCDD042AB4650700BA4A22 /* TaskManager.swift */,
+				39BCDD002AB45CA800BA4A22 /* TaskDetailView.swift */,
 				39ADA94B2AB3131900EF8E95 /* AddTaskView.swift */,
 				39ADA93D2AB300C100EF8E95 /* Assets.xcassets */,
 				39ADA93F2AB300C100EF8E95 /* Preview Content */,
@@ -148,6 +157,9 @@
 			files = (
 				39ADA93C2AB300C000EF8E95 /* ContentView.swift in Sources */,
 				39ADA9482AB312DD00EF8E95 /* TasksView.swift in Sources */,
+				39BCDD052AB4650700BA4A22 /* TaskManager.swift in Sources */,
+				39BCDD012AB45CA800BA4A22 /* TaskDetailView.swift in Sources */,
+				39BCDD032AB462C500BA4A22 /* EditTaskView.swift in Sources */,
 				39ADA94E2AB313BA00EF8E95 /* TaskListView.swift in Sources */,
 				39ADA93A2AB300C000EF8E95 /* TaskNinjaApp.swift in Sources */,
 				39ADA94C2AB3131900EF8E95 /* AddTaskView.swift in Sources */,

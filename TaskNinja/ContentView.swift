@@ -11,7 +11,11 @@ struct ContentView: View {
     @State private var tasks: [Task] = []
     @State private var userName = ""
     @State private var isNameEntered = false
-    
+    @State private var isErrorShowing = false
+    @State private var errorMessage = ""
+
+    private let characterLimit = 20
+
     var body: some View {
         if isNameEntered {
             MainView(userName: userName)
@@ -22,13 +26,20 @@ struct ContentView: View {
                     .foregroundColor(.accentColor)
                 Text("Welcome to TaskNinja!")
                 Text("Please enter your name:")
-                
+
                 TextField("Name", text: $userName)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding()
-                
+                    .onTapGesture {
+
+                        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                    }
+
                 Button(action: {
-                    isNameEntered = true
+        
+                    if validateName() {
+                        isNameEntered = true
+                    }
                 }) {
                     Text("Proceed")
                         .padding()
@@ -38,13 +49,40 @@ struct ContentView: View {
                 }
             }
             .padding()
+            .onTapGesture {
+                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+            }
+            .alert(isPresented: $isErrorShowing) {
+                Alert(
+                    title: Text("Error"),
+                    message: Text(errorMessage),
+                    dismissButton: .default(Text("OK"))
+                )
+            }
         }
     }
+
+    private func validateName() -> Bool {
+        if userName.isEmpty {
+            errorMessage = "Name cannot be empty."
+            isErrorShowing = true
+            return false
+        } else if userName.count > characterLimit {
+            errorMessage = "Name exceeds the character limit of \(characterLimit) characters."
+            isErrorShowing = true
+            return false
+        }
+        return true
+    }
 }
+
 
 struct MainView: View {
     var userName: String
     @State private var isAppExiting = false
+    
+    private let exitAlertTitle = "Exit TaskNinja?"
+    private let exitAlertMessage = "Are you sure you want to exit TaskNinja?"
     
     var body: some View {
         NavigationView {
@@ -85,8 +123,8 @@ struct MainView: View {
             .navigationBarTitle("")
             .alert(isPresented: $isAppExiting) {
                 Alert(
-                    title: Text("Exit TaskNinja?"),
-                    message: Text("Are you sure you want to exit TaskNinja?"),
+                    title: Text(exitAlertTitle),
+                    message: Text(exitAlertMessage),
                     primaryButton: .destructive(Text("Exit")) {
                         exit(0)
                     },
