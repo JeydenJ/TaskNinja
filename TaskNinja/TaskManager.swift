@@ -39,21 +39,23 @@ class Task: Identifiable, Hashable, TaskProtocol {
     var description: String
     var dueDate: Date
     var priority: Priority
-
-    init(id: UUID, name: String, description: String, dueDate: Date, priority: Priority) {
+    var type: TaskType
+    
+    init(id: UUID, name: String, description: String, dueDate: Date, priority: Priority, type: TaskType) {
         self.id = id
         self.name = name
         self.description = description
         self.dueDate = dueDate
         self.priority = priority
+        self.type = type
     }
     static func == (lhs: Task, rhs: Task) -> Bool {
-            return lhs.id == rhs.id
-        }
-
-        func hash(into hasher: inout Hasher) {
-            hasher.combine(id)
-        }
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
 }
 
 // PersonalTask that conforms to TaskProtocol
@@ -79,24 +81,29 @@ struct WorkTask: TaskProtocol {
 // TaskManager as a class conforming to TaskManagerProtocol
 class TaskManager: TaskManagerProtocol {
     static let shared = TaskManager()
-
+    
     private var tasks: [TaskProtocol] = []
-
+    
     func addTask(_ task: TaskProtocol) {
         tasks.append(task)
     }
-
+    
     func updateTask(_ task: TaskProtocol) {
         if let index = tasks.firstIndex(where: { $0.id == task.id }) {
             tasks[index] = task
         }
     }
-
+    
     func deleteTask(_ task: TaskProtocol) {
         tasks.removeAll { $0.id == task.id }
     }
-
+    
     func getTasks() -> [TaskProtocol] {
         return tasks
+    }
+    func createTask(name: String, description: String, dueDate: Date, priority: Priority, type: TaskType) -> Task {
+        let newTask = Task(id: UUID(), name: name, description: description, dueDate: dueDate, priority: priority, type: type)
+        tasks.append(newTask)
+        return newTask
     }
 }

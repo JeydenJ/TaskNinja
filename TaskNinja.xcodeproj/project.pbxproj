@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3949D2382AB5B73B00E1E065 /* FilterTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3949D2372AB5B73B00E1E065 /* FilterTaskView.swift */; };
+		3949D2482AB5E05D00E1E065 /* TaskNinjaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3949D2472AB5E05D00E1E065 /* TaskNinjaTests.swift */; };
 		39ADA93A2AB300C000EF8E95 /* TaskNinjaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39ADA9392AB300C000EF8E95 /* TaskNinjaApp.swift */; };
 		39ADA93C2AB300C000EF8E95 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39ADA93B2AB300C000EF8E95 /* ContentView.swift */; };
 		39ADA93E2AB300C100EF8E95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39ADA93D2AB300C100EF8E95 /* Assets.xcassets */; };
@@ -15,11 +17,23 @@
 		39ADA94C2AB3131900EF8E95 /* AddTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39ADA94B2AB3131900EF8E95 /* AddTaskView.swift */; };
 		39ADA94E2AB313BA00EF8E95 /* TaskListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39ADA94D2AB313BA00EF8E95 /* TaskListView.swift */; };
 		39BCDD012AB45CA800BA4A22 /* TaskDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BCDD002AB45CA800BA4A22 /* TaskDetailView.swift */; };
-		39BCDD032AB462C500BA4A22 /* EditTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BCDD022AB462C500BA4A22 /* EditTaskView.swift */; };
 		39BCDD052AB4650700BA4A22 /* TaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BCDD042AB4650700BA4A22 /* TaskManager.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		3949D2492AB5E05D00E1E065 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 39ADA92E2AB300C000EF8E95 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 39ADA9352AB300C000EF8E95;
+			remoteInfo = TaskNinja;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		3949D2372AB5B73B00E1E065 /* FilterTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTaskView.swift; sourceTree = "<group>"; };
+		3949D2452AB5E05D00E1E065 /* TaskNinjaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TaskNinjaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3949D2472AB5E05D00E1E065 /* TaskNinjaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskNinjaTests.swift; sourceTree = "<group>"; };
 		39ADA9362AB300C000EF8E95 /* TaskNinja.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskNinja.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39ADA9392AB300C000EF8E95 /* TaskNinjaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskNinjaApp.swift; sourceTree = "<group>"; };
 		39ADA93B2AB300C000EF8E95 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -29,11 +43,17 @@
 		39ADA94B2AB3131900EF8E95 /* AddTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskView.swift; sourceTree = "<group>"; };
 		39ADA94D2AB313BA00EF8E95 /* TaskListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListView.swift; sourceTree = "<group>"; };
 		39BCDD002AB45CA800BA4A22 /* TaskDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailView.swift; sourceTree = "<group>"; };
-		39BCDD022AB462C500BA4A22 /* EditTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskView.swift; sourceTree = "<group>"; };
 		39BCDD042AB4650700BA4A22 /* TaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		3949D2422AB5E05D00E1E065 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		39ADA9332AB300C000EF8E95 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -44,10 +64,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3949D2462AB5E05D00E1E065 /* TaskNinjaTests */ = {
+			isa = PBXGroup;
+			children = (
+				3949D2472AB5E05D00E1E065 /* TaskNinjaTests.swift */,
+			);
+			path = TaskNinjaTests;
+			sourceTree = "<group>";
+		};
 		39ADA92D2AB300C000EF8E95 = {
 			isa = PBXGroup;
 			children = (
 				39ADA9382AB300C000EF8E95 /* TaskNinja */,
+				3949D2462AB5E05D00E1E065 /* TaskNinjaTests */,
 				39ADA9372AB300C000EF8E95 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -56,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				39ADA9362AB300C000EF8E95 /* TaskNinja.app */,
+				3949D2452AB5E05D00E1E065 /* TaskNinjaTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -64,10 +94,10 @@
 			isa = PBXGroup;
 			children = (
 				39ADA9392AB300C000EF8E95 /* TaskNinjaApp.swift */,
+				3949D2372AB5B73B00E1E065 /* FilterTaskView.swift */,
 				39ADA93B2AB300C000EF8E95 /* ContentView.swift */,
 				39ADA9472AB312DD00EF8E95 /* TasksView.swift */,
 				39ADA94D2AB313BA00EF8E95 /* TaskListView.swift */,
-				39BCDD022AB462C500BA4A22 /* EditTaskView.swift */,
 				39BCDD042AB4650700BA4A22 /* TaskManager.swift */,
 				39BCDD002AB45CA800BA4A22 /* TaskDetailView.swift */,
 				39ADA94B2AB3131900EF8E95 /* AddTaskView.swift */,
@@ -88,6 +118,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		3949D2442AB5E05D00E1E065 /* TaskNinjaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3949D24B2AB5E05D00E1E065 /* Build configuration list for PBXNativeTarget "TaskNinjaTests" */;
+			buildPhases = (
+				3949D2412AB5E05D00E1E065 /* Sources */,
+				3949D2422AB5E05D00E1E065 /* Frameworks */,
+				3949D2432AB5E05D00E1E065 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3949D24A2AB5E05D00E1E065 /* PBXTargetDependency */,
+			);
+			name = TaskNinjaTests;
+			productName = TaskNinjaTests;
+			productReference = 3949D2452AB5E05D00E1E065 /* TaskNinjaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		39ADA9352AB300C000EF8E95 /* TaskNinja */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 39ADA9442AB300C100EF8E95 /* Build configuration list for PBXNativeTarget "TaskNinja" */;
@@ -115,6 +163,10 @@
 				LastSwiftUpdateCheck = 1420;
 				LastUpgradeCheck = 1420;
 				TargetAttributes = {
+					3949D2442AB5E05D00E1E065 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 39ADA9352AB300C000EF8E95;
+					};
 					39ADA9352AB300C000EF8E95 = {
 						CreatedOnToolsVersion = 14.2;
 					};
@@ -134,11 +186,19 @@
 			projectRoot = "";
 			targets = (
 				39ADA9352AB300C000EF8E95 /* TaskNinja */,
+				3949D2442AB5E05D00E1E065 /* TaskNinjaTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		3949D2432AB5E05D00E1E065 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		39ADA9342AB300C000EF8E95 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -151,6 +211,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		3949D2412AB5E05D00E1E065 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3949D2482AB5E05D00E1E065 /* TaskNinjaTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		39ADA9322AB300C000EF8E95 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -158,8 +226,8 @@
 				39ADA93C2AB300C000EF8E95 /* ContentView.swift in Sources */,
 				39ADA9482AB312DD00EF8E95 /* TasksView.swift in Sources */,
 				39BCDD052AB4650700BA4A22 /* TaskManager.swift in Sources */,
+				3949D2382AB5B73B00E1E065 /* FilterTaskView.swift in Sources */,
 				39BCDD012AB45CA800BA4A22 /* TaskDetailView.swift in Sources */,
-				39BCDD032AB462C500BA4A22 /* EditTaskView.swift in Sources */,
 				39ADA94E2AB313BA00EF8E95 /* TaskListView.swift in Sources */,
 				39ADA93A2AB300C000EF8E95 /* TaskNinjaApp.swift in Sources */,
 				39ADA94C2AB3131900EF8E95 /* AddTaskView.swift in Sources */,
@@ -168,7 +236,51 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		3949D24A2AB5E05D00E1E065 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 39ADA9352AB300C000EF8E95 /* TaskNinja */;
+			targetProxy = 3949D2492AB5E05D00E1E065 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		3949D24C2AB5E05D00E1E065 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 78RVQ7KNVP;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jeyden.TaskNinjaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TaskNinja.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TaskNinja";
+			};
+			name = Debug;
+		};
+		3949D24D2AB5E05D00E1E065 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 78RVQ7KNVP;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jeyden.TaskNinjaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TaskNinja.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TaskNinja";
+			};
+			name = Release;
+		};
 		39ADA9422AB300C100EF8E95 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -344,6 +456,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3949D24B2AB5E05D00E1E065 /* Build configuration list for PBXNativeTarget "TaskNinjaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3949D24C2AB5E05D00E1E065 /* Debug */,
+				3949D24D2AB5E05D00E1E065 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		39ADA9312AB300C000EF8E95 /* Build configuration list for PBXProject "TaskNinja" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -10,6 +10,11 @@ import SwiftUI
 struct TasksView: View {
     @State private var tasks: [Task] = []
     
+    // Computed property to convert [Task] to [TaskProtocol]
+    private var taskProtocols: [TaskProtocol] {
+        return tasks.map { $0 as TaskProtocol }
+    }
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -19,29 +24,15 @@ struct TasksView: View {
                     .padding(.top)
                 
                 Spacer()
-                
+                // Navigation link to the AddTaskView
                 NavigationLink(destination: AddTaskView(tasks: $tasks)) {
                     Text("Add Task")
                         .font(.headline)
                         .padding()
                 }
-                
+                // Navigation link to the TaskListView
                 NavigationLink(destination: TaskListView(tasks: $tasks)) {
                     Text("View Tasks")
-                        .font(.headline)
-                        .padding()
-                }
-                
-                Button(action: {
-                }) {
-                    Text("Edit Tasks")
-                        .font(.headline)
-                        .padding()
-                }
-                
-                Button(action: {
-                }) {
-                    Text("Delete Tasks")
                         .font(.headline)
                         .padding()
                 }
@@ -51,6 +42,7 @@ struct TasksView: View {
         }
     }
 }
+
 struct TasksView_Previews: PreviewProvider {
     static var previews: some View {
         TasksView()

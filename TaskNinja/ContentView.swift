@@ -7,18 +7,35 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    @State private var tasks: [Task] = []
-    @State private var userName = ""
+protocol UserInputValidation {
+    func validateInput() -> (isValid: Bool, errorMessage: String)
+}
+
+protocol AppExitConfirmation {
+    var isAppExiting: Bool { get set }
+    func confirmAppExit()
+}
+
+protocol ContentViewPresentable {
+    var userName: String { get set }
+}
+
+protocol MainViewPresentable {
+    func userNameText() -> String
+}
+
+struct ContentView: View, ContentViewPresentable, UserInputValidation {
+    
+    @State internal var userName = ""
     @State private var isNameEntered = false
     @State private var isErrorShowing = false
     @State private var errorMessage = ""
-
     private let characterLimit = 20
-
+    
     var body: some View {
+        // Show main view
         if isNameEntered {
-            MainView(userName: userName)
+            MainView(userName: $userName)
         } else {
             VStack {
                 Image(systemName: "person.fill")
@@ -26,19 +43,22 @@ struct ContentView: View {
                     .foregroundColor(.accentColor)
                 Text("Welcome to TaskNinja!")
                 Text("Please enter your name:")
-
+                
                 TextField("Name", text: $userName)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding()
                     .onTapGesture {
-
+                        
                         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                     }
-
+                
                 Button(action: {
-        
-                    if validateName() {
+                    let validationResult = validateInput()
+                    if validationResult.isValid {
                         isNameEntered = true
+                    } else {
+                        errorMessage = validationResult.errorMessage
+                        isErrorShowing = true
                     }
                 }) {
                     Text("Proceed")
@@ -52,6 +72,7 @@ struct ContentView: View {
             .onTapGesture {
                 UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
             }
+            // Error alert for displaying validation errors
             .alert(isPresented: $isErrorShowing) {
                 Alert(
                     title: Text("Error"),
@@ -61,26 +82,20 @@ struct ContentView: View {
             }
         }
     }
-
-    private func validateName() -> Bool {
+    // Validates user input and returns validation result
+    func validateInput() -> (isValid: Bool, errorMessage: String) {
         if userName.isEmpty {
-            errorMessage = "Name cannot be empty."
-            isErrorShowing = true
-            return false
+            return (false, "Name cannot be empty.")
         } else if userName.count > characterLimit {
-            errorMessage = "Name exceeds the character limit of \(characterLimit) characters."
-            isErrorShowing = true
-            return false
+            return (false, "Name exceeds the character limit of \(characterLimit) characters.")
         }
-        return true
+        return (true, "")
     }
 }
 
-
-struct MainView: View {
-    var userName: String
-    @State private var isAppExiting = false
-    
+struct MainView: View, MainViewPresentable, AppExitConfirmation {
+    @Binding var userName: String
+    @State var isAppExiting = false
     private let exitAlertTitle = "Exit TaskNinja?"
     private let exitAlertMessage = "Are you sure you want to exit TaskNinja?"
     
@@ -92,7 +107,7 @@ struct MainView: View {
                     .bold()
                     .padding(.top)
                 
-                Text("Hello, \(userName)!")
+                Text("Hello, \(userNameText())!")
                     .font(.title)
                     .padding(.top)
                 
@@ -112,7 +127,7 @@ struct MainView: View {
                 }
                 
                 Button(action: {
-                    isAppExiting = true
+                    confirmAppExit()
                 }) {
                     Text("Exit")
                         .font(.headline)
@@ -133,8 +148,15 @@ struct MainView: View {
             }
         }
     }
+    
+    func userNameText() -> String {
+        return userName
+    }
+    
+    func confirmAppExit() {
+        isAppExiting = true
+    }
 }
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
